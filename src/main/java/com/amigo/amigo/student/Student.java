@@ -10,16 +10,9 @@ import java.time.Period;
 @Table
 public class Student {
     @Id
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            generator = "student_sequence",
-            strategy = GenerationType.SEQUENCE
-    )
-    private long id;
+    @SequenceGenerator(name = "student_sequence", sequenceName = "student_sequence", allocationSize = 1)
+    @GeneratedValue(generator = "student_sequence", strategy = GenerationType.SEQUENCE)
+    private Long id;
     private String name;
     private String email;
     private LocalDate dob;
@@ -46,7 +39,7 @@ public class Student {
     }
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -63,10 +56,10 @@ public class Student {
     }
 
     public int getAge() {
-        return Period.between(dob, LocalDate.now()).getYears();
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
